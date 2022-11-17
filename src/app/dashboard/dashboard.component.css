@@ -1,12 +1,13 @@
 /* Footer */
 footer {
-    background-color: #1d9f81;
-    position: fixed;
-    /* margin-left :-12px; */
-    bottom: 0;
-    width: 72%;
+  background-color: #1d9f81;
+  /* position: fixed; */
+  /* margin-left :-12px; */
+  bottom: 0;
+  /* width: 82%; */
 
-  }
+}
+
 
   footer nav {
     padding: 20px;

@@ -12,19 +12,19 @@ export class CourService {
   //apiurl="https://localhost:44307/api/Courier";
 
   GetCourierData(){
-    return this.http.get('https://localhost:7284/api/Courier');
+    return this.http.get('https://localhost:44314/api/Courier');
   }
   PostCourierData(courform:any){
-    return this.http.post('https://localhost:7284/api/Courier',courform)
+    return this.http.post('https://localhost:44314/api/Courier',courform)
   }
   PutCourierData(courUform:any){
-    return this.http.put('https://localhost:7284/api/Courier',courUform)
+    return this.http.put('https://localhost:44314/api/Courier',courUform)
   }
   DeleteCourierData(cId:any){
-    return this.http.delete('https://localhost:7284/api/Courier'+"/"+cId)
+    return this.http.delete('https://localhost:44314/api/Courier'+"/"+cId)
   }
   GetCourierById(cId:any){
-    return this.http.get('https://localhost:7284/api/Courier'+"/"+cId)
+    return this.http.get('https://localhost:44314/api/Courier'+"/"+cId)
   }
 
 }

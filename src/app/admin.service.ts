@@ -8,12 +8,12 @@ import { HttpClient } from '@angular/common/http';
 export class AdminService {
 
   constructor(private http: HttpClient) { }
-  apiurl = "https://localhost:44307/api/Admin/";
+  apiurl = "https://localhost:44314/Admin";
   loginadmin(loginInfo:Array<string>)
   {
     return this.http.post
     (
-      this.apiurl + "loginUser",
+      this.apiurl + "Loginadmin",
       {
         UserName:loginInfo[0],
         Password:loginInfo[1],

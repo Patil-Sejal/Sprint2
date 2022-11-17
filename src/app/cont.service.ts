@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class ContService {
 
   constructor(private http:HttpClient) { }
-  apiurl="https://localhost:44307/api/Contact";
+  apiurl="https://localhost:44314/api/Contact";
   GetContactData(){
     return this.http.get(this.apiurl);
   }

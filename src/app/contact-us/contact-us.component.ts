@@ -19,7 +19,7 @@ export class ContactUsComponent implements OnInit {
       contId:new FormControl({value:0,disabled:true}),
       name:new FormControl(),
       email:new FormControl(),
-      phoneNo:new FormControl(),
+      phone:new FormControl(),
       message:new FormControl(),
   });
   SaveContact(){

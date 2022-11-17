@@ -32,13 +32,14 @@ body {
   color: #ffffff;
 }
 
-/* #nav-top ul li a:hover {
-  text-decoration: underline;
-  width: 100px;
+#nav-top ul li a:hover {
+  /* text-decoration: underline; */
+  color: #000;
+  /* width: 100px; */
   display: block;
   font-size: 17px;
 
-} */
+}
 
 #nav-top li#sign-in a:link, #nav-top li#sign-in a:visited {
   /* background-color: #4380ef; */

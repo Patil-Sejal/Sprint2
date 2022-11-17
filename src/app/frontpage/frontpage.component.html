@@ -13,12 +13,20 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark text-white">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container">
-      <div class="navbar-brand p-1">ASD(Ace Speed Delivery)</div>
-      <!-- <li id="sign-in"><span><a routerLink="/login">Log in</a></span></li> -->
+        <a class="navbar-brand p-1 text-white">ASD(Ace Speed Delivery)</a>
+        <div class="collapse navbar-collapse" id="navcollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a routerLink="/login" class="nav-link">
+                        <i class="fas fa-user-plus"></i> Login
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
 
   <!--header section-->
   <header class="headersection text-white py-0">
@@ -31,7 +39,7 @@
                 <li><span><a routerLink="/contact-us">&nbsp; Contact Us &nbsp;</a></span></li>
                 <li><span><a routerLink="/shipment">&nbsp; Track Courier &nbsp;</a></span></li>
                 <li><span><a routerLink="/register">&nbsp; PickUpRequest &nbsp;</a></span></li>
-                <li id="sign-in"><span><a routerLink="/login">&nbsp; Log in</a></span></li>
+                <!-- <li id="sign-in"><span><a routerLink="/login">&nbsp; Log in</a></span></li> -->
               </ul>
             </nav>
         </h5>
