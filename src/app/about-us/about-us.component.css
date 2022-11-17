@@ -1,0 +1,28 @@
+.content>h1{
+  color: #383737;
+  background-color:  #b8fa6e;
+}
+.content>p{
+  color:rgb(96, 25, 163);
+}
+.client-grid>h1
+{
+  color:blue;
+}
+.client-box {
+  float: unset;
+  width: 250px;
+  height: 250px;
+}
+.client-box img {
+  display: block;
+  width: 100%;
+}
+.image
+{
+  background-image:('https://www.xpressbees.com/images/aboutus/delivery-locations.png');
+  display: flex;
+  background-size: auto;
+  background-position:center;
+}
+

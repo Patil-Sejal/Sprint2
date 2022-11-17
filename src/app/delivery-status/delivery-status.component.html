@@ -1,0 +1,58 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="delivery-status.component.css">
+</head>
+<body>
+  <!--Nav abr starts here-->
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <div class="container">
+          <a class="navbar-brand p-1 text-white">ASD(Ace Speed Delivery)</a>
+      </div>
+  </nav>
+<div *ngFor="let item of status;let i=index;">
+  <!-- <div>
+            <img [src]="item.photo" >
+          </div> -->
+  <!-- <div>{{item.name}}</div>
+          <div ><b>{{item.price}}</b></div>
+          <div><b>{{item.quantity}}</b></div>
+          <div><b>{{item.price}}</b></div><br> -->
+  <div>
+    <div class="row multi-steps-wrap">
+      <ul class="list-unstyled multi-steps">
+        <li
+          class="job-status job-created"
+          [ngClass]="{'job-inprogress is-active negative': item.status == 'processing'}"
+        >
+          processing
+        </li>
+        <li
+          class="job-status"
+          [ngClass]="{'job-inprogress is-active negative': item.status == 'packed'}"
+        >
+          Packed
+        </li>
+        <li
+          class="job-status job-completed"
+          [ngClass]="{'job-inprogress is-active negative': item.status == 'shipped'}"
+        >
+          Shipped
+        </li>
+        <li
+          class="job-status job-closed"
+          [ngClass]="{'job-inprogress is-active negative': item.status == 'delivered'}"
+        >
+          Delivered
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

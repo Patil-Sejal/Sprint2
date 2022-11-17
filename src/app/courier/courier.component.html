@@ -1,0 +1,249 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="courier.component.css">
+  <title>Courier</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container text-white">
+        <a class="navbar-brand p-1">ASD(Ace Speed Delivery)</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navcollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navcollapse">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="dashboard.component.html" class="nav-link px-3 active">Dashboard</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a routerLink="/login" class="nav-link">
+              <i class="fas fa-user-times"></i> Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </nav>
+
+  <!--header section-->
+  <!-- <header class="headersection bg-primary text-white py-2">
+    <div class="container">
+      <h1>
+        <i class="fas fa-cog "></i> Dashboard
+      </h1>
+    </div>
+  </header>
+  <br><br><br> -->
+
+  <!-- *******************Save Courier***************** -->
+  <!-- <section class="addsection bg-light py-3">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Courier Form</h4>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="courform" (ngSubmit)="SaveCourier()">
+        <div class="mb-3">
+          <label>Courier ID</label>
+            <div class="input-group">
+              <input name="cId" class="form-control" formControlName="cId">
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>Name</label>
+            <div class="input-group">
+              <input name="name" class="form-control" formControlName="name" >
+              <div class="form-text text-danger" *ngIf="name.errors?.['required'] && (name.touched || name.dirty)">
+              Name is required.
+              </div>
+              <div class="form-text text-danger" *ngIf="name.errors?.['minlength'] && (name.touched || name.dirty)">
+                Name is too short
+              </div>
+              <div class="form-text text-danger" *ngIf="name.errors?.['pattern'] && (name.dirty || name.touched)">
+                Incorrect Format
+              </div>
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>Docket</label>
+            <div class="input-group">
+              <input name="docket" class="form-control" formControlName="docket">
+              <div class="form-text text-danger" *ngIf="docket.errors?.['required'] && docket.touched">
+                Details needed
+              </div>
+              <div class="form-text text-danger" *ngIf="docket.errors?.['pattern'] && (docket.dirty || docket.touched)">
+                Incorrect Format
+              </div>
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>From City</label>
+            <div class="input-group">
+              <input name="fromCity" class="form-control" formControlName="fromCity">
+              <div class="form-text text-danger" *ngIf="fromCity.errors?.['required'] && fromCity.touched">
+                This field is required
+              </div>
+              <div class="form-text text-danger" *ngIf="fromCity.errors?.['pattern'] && (fromCity.dirty || fromCity.touched)">
+                Incorrect Format
+              </div>
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>To City</label>
+            <div class="input-group">
+              <input name="toCity" class="form-control" formControlName="toCity" >
+              <div class="form-text text-danger" *ngIf="toCity.errors?.['required'] && toCity.touched">
+                This field is required
+              </div>
+              <div class="form-text text-danger" *ngIf="toCity.errors?.['pattern'] && (toCity.dirty || toCity.touched)">
+                Incorrect Format
+              </div>
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>Current City</label>
+            <div class="input-group">
+                <input name="currentCity" class="form-control" formControlName="currentCity" >
+                <div class="form-text text-danger" *ngIf="currentCity.errors?.['required'] && currentCity.touched">
+                  This field is required
+                </div>
+                <div class="form-text text-danger" *ngIf="currentCity.errors?.['pattern'] && (currentCity.dirty || currentCity.touched)">
+                  Incorrect Format
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>Weight</label>
+            <div class="input-group">
+              <input name="weight" class="form-control" formControlName="weight">
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>Status</label>
+            <div class="input-group">
+              <input name="status" class="form-control" formControlName="status">
+            </div>
+        </div>
+        <div class="mb-3">
+          <div class="input-group">
+            <button [disabled]="courform.invalid" type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button style="display: none;" type="button" class="btn btn-outline-dark"
+        (click)="SaveCourier()">Save</button>
+    </div>
+  </section>
+  <br> -->
+
+
+  <!-- <pre></pre> -->
+  <!-- *********************Show Courier***************************** -->
+  <!-- <section class="addsection bg-light py-3">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Show Courier Details</h4>
+    </div>
+    <input style="width:100px" #cId class="Form-Control"/><br><br>
+      <a class="btn btn-primary" (click)="GetCourById(cId.value)">Show</a><br>
+  </section>
+  <span>
+    Name: {{courobject.name}}<br>
+    Docket: {{courobject.docket}}<br>
+    From-City:{{courobject.fromCity}}<br>
+    To-City:{{courobject.toCity}}<br>
+    Current-City:{{courobject.currentCity}}<br>
+    Weight:{{courobject.weight}}<br>
+    Status:{{courobject.status}}<br>
+  </span> -->
+  <!-- ******************Delete Courier************************ -->
+  <!-- <section class="addsection bg-light py-3">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Delete Courier</h4>
+    </div>
+    <input style="width:100px"  #cId class="Form-Control"/><br>
+         <div class="mb-3">
+          <div class="input-group"> -->
+            <!-- <button type="submit" class="btn btn-primary" (click)="DeleteCourById(cId.value)">Delete</button> -->
+          <!-- </div>
+        </div> -->
+  <!-- </section><br> -->
+  <!-- ***********************Update Form********************** -->
+  <!-- <section class="addsection bg-light py-3">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Update Form</h4>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="courUform" (ngSubmit)="UpdateCourById(cId.value)">
+        <div class="mb-3">
+          <label>Courier ID</label>
+            <div class="input-group">
+              <input name="cId" class="form-control" formControlName="cId"  #cId class="Form-Control"/>
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>Name</label>
+            <div class="input-group">
+              <input name="name" class="form-control" formControlName="name">
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>Docket</label>
+            <div class="input-group">
+              <input name="docket" class="form-control" formControlName="docket">
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>From City</label>
+            <div class="input-group">
+              <input name="fromCity" class="form-control" formControlName="fromCity">
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>To City</label>
+            <div class="input-group">
+              <input name="toCity" class="form-control" formControlName="toCity">
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>Current City</label>
+            <div class="input-group">
+              <input name="currentCity" class="form-control" formControlName="currentCity">
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>Weight</label>
+            <div class="input-group">
+              <input name="weight" class="form-control" formControlName="weight">
+            </div>
+        </div>
+        <div class="mb-3">
+          <label>Status</label>
+            <div class="input-group">
+              <input name="status" class="form-control" formControlName="status">
+            </div>
+        </div>
+        <div class="mb-3">
+          <div class="input-group">
+            <button [disabled]="courform.invalid" type="submit" class="btn btn-primary">Update</button>
+          </div>
+        </div>
+        <br>
+      </form>
+    </div>
+  </section>
+</body>
+</html> -->
+
